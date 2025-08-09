@@ -1,5 +1,4 @@
-// DLA / Brownian Tree simple implementation
-// Uses a pixel grid where each cell represents a particle-sized block.
+
 
 const canvas = document.getElementById('dlaCanvas');
 const ctx = canvas.getContext('2d');
@@ -62,10 +61,10 @@ function drawCell(x,y,color){
 }
 
 function spawnParticleOnBoundary(){
-  // spawn on a circle around center using random angle
+  
   const cx = cols/2;
   const cy = rows/2;
-  const radius = Math.max(cols, rows) * 0.48; // near edge
+  const radius = Math.max(cols, rows) * 0.48; 
   const angle = Math.random() * Math.PI * 2;
   const x = Math.floor(cx + Math.cos(angle) * radius);
   const y = Math.floor(cy + Math.sin(angle) * radius);
@@ -92,7 +91,7 @@ function randomWalkParticle(maxSteps){
       if(inBounds(nx,ny) && isOccupied(nx,ny)){
         // stick here
         setOccupied(p.x,p.y);
-        // color by distance from center for nice gradient
+
         const cx = cols/2; const cy = rows/2;
         const d = Math.hypot(p.x - cx, p.y - cy);
         const maxd = Math.hypot(cx, cy);
@@ -105,14 +104,14 @@ function randomWalkParticle(maxSteps){
       }
     }
 
-    // random move (4-neighborhood)
+
     const dir = Math.floor(Math.random() * 4);
     if(dir === 0) p.x++;
     else if(dir === 1) p.x--;
     else if(dir === 2) p.y++;
     else p.y--;
 
-    // bounce or re-spawn if out of bounds far away
+
     if(!inBounds(p.x,p.y)){
       // respawn
       p = spawnParticleOnBoundary();
@@ -122,7 +121,7 @@ function randomWalkParticle(maxSteps){
       }
     }
   }
-  // max steps reached without sticking
+ 
   return false;
 }
 
@@ -133,11 +132,11 @@ function step(){
   for(let i=0;i<perFrame;i++){
     if(randomWalkParticle(maxSteps)) stuck++;
   }
-  // keep animating
+
   if(running) animationId = requestAnimationFrame(step);
 }
 
-// UI wiring
+
 startBtn.addEventListener('click', ()=>{
   if(running) return;
   running = true;
