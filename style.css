@@ -1,0 +1,20 @@
+:root{
+  --bg: #0b0f17;
+  --card: #0f1724;
+  --accent: #60a5fa;
+  --muted: #9aa4b2;
+}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;font-family:Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial}
+body{background:linear-gradient(180deg, #020617 0%, #071226 100%);color:#e6eef8;display:flex;align-items:center;justify-content:center;padding:24px}
+.container{width:100%;max-width:1100px}
+h1{text-align:left;margin:8px 0 12px;font-size:20px}
+.controls{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:12px;align-items:center}
+.controls label{font-size:13px;color:var(--muted)}
+.controls input, .controls select{margin-left:6px;padding:4px;border-radius:6px;border:1px solid #203040;background:#0b1220;color:#dfe9fb}
+.controls button{background:var(--accent);border:none;padding:6px 10px;border-radius:8px;color:#072033;cursor:pointer}
+.canvas-wrap{background:var(--card);padding:10px;border-radius:12px;display:flex;justify-content:center;align-items:center}
+canvas{display:block;border-radius:6px}
+.footer{color:var(--muted);font-size:13px;margin-top:8px}
+
+@media (max-width:720px){.controls{gap:6px}.controls label{font-size:12px}}
